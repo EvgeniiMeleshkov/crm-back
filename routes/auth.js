@@ -10,4 +10,3 @@ router.post('/recovery', recovery)
 router.get('/me', checkAuth, me)
 
 export default router
-

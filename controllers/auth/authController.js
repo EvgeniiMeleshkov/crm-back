@@ -1,7 +1,7 @@
-import me from './meController.js'
-import recovery from './passRecoveryController.js'
-import register from './regController.js'
-import login from './loginController.js'
+import me from './me.js'
+import recovery from './recovery.js'
+import register from './reg.js'
+import login from './login.js'
 
 export {
   me,

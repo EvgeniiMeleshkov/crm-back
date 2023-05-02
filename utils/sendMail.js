@@ -17,19 +17,18 @@ const sendEmail = subject => format => message => async (to) => {
       from: __MAILER_LOGIN__,
       to,
       subject
-    } 
+    }
     preferences[format] = message
-    
+
     await transport.sendMail(preferences)
-  } 
-  catch (err) {
+  } catch (err) {
     console.log(err)
-  } 
+  }
 }
 
-const sendRecoveryMail = sendEmail('Восстановление доступа Rating Unicode')
+const sendRecoveryMail = sendEmail('Восстановление доступа')
 const sendRecoveryMailHTML = sendRecoveryMail('text')
-  
+
 export {
   sendRecoveryMailHTML
 }

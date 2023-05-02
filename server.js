@@ -1,5 +1,7 @@
 import express from 'express'
-import auth from './routes/authRoute.js'
+import auth from './routes/auth.js'
+import project from './routes/project.js'
+import user from './routes/user.js'
 
 const app = express()
 const { __PORT__ } = process.env
@@ -7,6 +9,8 @@ const { __PORT__ } = process.env
 app.use(express.json())
 
 app.use('/auth', auth)
+app.use('/project', project)
+app.use('/user', user)
 
 app.listen(__PORT__, onListen)
 function onListen (err) {
