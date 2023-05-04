@@ -4,11 +4,13 @@ import User from '../../models/User.js'
 
 export default async function create (req, res) {
   try {
+    console.log(req.body)
     const user = await User.findOne({ email: req.body.email })
     if (!user || !user.customer) return userNotFound(res)
 
     const project = new Project({
-      customer: customer._id,
+      name: req.body.projectName,
+      customer: user._id,
       step: 0
     })
 
