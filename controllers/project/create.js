@@ -4,7 +4,6 @@ import User from '../../models/User.js'
 
 export default async function create (req, res) {
   try {
-    console.log(req.body)
     const user = await User.findOne({ email: req.body.email })
     if (!user || !user.customer) return userNotFound(res)
 

@@ -2,7 +2,7 @@ import Project from '../../models/Project.js'
 import User from '../../models/User.js'
 import { ok, badRequest, forbiddenPage } from '../../utils/responseFactory.js'
 
-export default async function getCompetitors (req, res) {
+export default async function getCustomers (req, res) {
   try {
     if (req.admin) {
       const users = await User.find({ customer: true })
@@ -21,7 +21,7 @@ export default async function getCompetitors (req, res) {
           admin: x.admin
         }
       }))
-      console.log(usersToSend)
+     
       return ok(usersToSend)(res)
     }
     if (req.customer) {
