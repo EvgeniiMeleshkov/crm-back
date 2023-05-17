@@ -3,7 +3,7 @@ import Project from '../../models/Project.js'
 import User from '../../models/User.js'
 import Ticket from '../../models/Ticket.js'
 
-export default async function create (req, res) {
+export default async function read (req, res) {
   try {
 
     const user = await User.findById({ _id: req.userId })
@@ -15,14 +15,13 @@ export default async function create (req, res) {
     const projectsWithTickets = await Promise.all(projects.map( async (x, idx) => {
       const tickets = await Ticket.find({ project: x._id })
       return {
+        _id: x._id,
         name: x.name,
         customer: x.customer,
         step: x.step,
         tickets
       }
     }))
-
-    console.log(projectsWithTickets)
 
     return ok(projectsWithTickets)(res)
   } catch (err) {
