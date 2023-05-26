@@ -30,5 +30,6 @@ const sendRecoveryMail = sendEmail('Восстановление доступа'
 const sendRecoveryMailHTML = sendRecoveryMail('text')
 
 export {
+  sendEmail,
   sendRecoveryMailHTML
 }

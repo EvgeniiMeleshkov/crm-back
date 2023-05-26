@@ -4,7 +4,12 @@ const message = mongoose.Schema({
   text: {
     type: String
   },
-  from: {
+  ticket: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Ticket',
+    required: true
+  },
+  customer: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true

@@ -3,6 +3,7 @@ import auth from './routes/auth.js'
 import project from './routes/project.js'
 import user from './routes/user.js'
 import ticket from './routes/ticket.js'
+import message from './routes/message.js'
 
 const app = express()
 const { __PORT__ } = process.env
@@ -13,6 +14,7 @@ app.use('/auth', auth)
 app.use('/project', project)
 app.use('/user', user)
 app.use('/ticket', ticket)
+app.use('/message', message)
 
 app.listen(__PORT__, onListen)
 function onListen (err) {
