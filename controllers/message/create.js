@@ -17,12 +17,19 @@ export default async function create (req, res) {
       customer: req.body.customerId,
       isMy: req.body.isMy
     })
+
+    if(req.body.isMy) {
+      sendEmail(ticket.name)('text')(message.text)(user.email)
+      .then( async () => {
+        const doc = await message.save()
+        return ok(doc)(res)
+      })
+    }
     
-    sendEmail(ticket.name)('text')(message.text)(user.email)
-    .then( async () => {
+    if(!req.body.isMy) {
       const doc = await message.save()
       return ok(doc)(res)
-    })
+    }
 
   } catch (err) {
     badRequest('Неудалось отправить сообщение')(res)
